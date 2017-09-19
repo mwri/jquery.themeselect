@@ -1,0 +1,19 @@
+.content {
+	background: #ffffff;
+	color:      #000000;
+}
+
+.sidebar {
+	background: #dddddd;
+	color:      #111111;
+}
+
+.topbar {
+	background: #eeeeee;
+	color:      #222222;
+}
+
+.theme_ctrlr {
+	background: #a0a0c0;
+	color:      #117722;
+}

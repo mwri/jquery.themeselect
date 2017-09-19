@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>jQuery.ThemeMatch</title>
+
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/themematch/node_modules/csscolorparser/csscolorparser.js"></script>
+	<script src="node_modules/themematch/dist/themematch.js"></script>
+
+	<link href="demo.css" rel="stylesheet">
+
+	<script src="jquery.themeselect/dist/jquery.themeselect.js"></script>
+	<link href="jquery.themeselect/dist/jquery.themeselect.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+	<div class="sidebar">
+		SIDE<br/>
+	</div>
+
+	<div class="topbar">
+		TOP
+	</div>
+
+	<div class="content">
+		CONTENT
+		<div class="theme_ctrlr">
+			Theme: <select class="themeselect"></select>
+		</div>
+		<div class="theme_ctrlr">
+			Theme: <select class="themeselect"></select>
+		</div>
+	</div>
+
+</body>
+
+
+<script>
+
+	$('.themeselect')
+	.themeselect({
+		themes: [
+			{ name: 'dark',   css: 'simple_dark.css'   },
+			{ name: 'light',  css: 'simple_light.css'  },
+			{ name: 'sunset', css: 'simple_sunset.css' },
+			{ name: 'ocean',  css: [
+				'content/content_watery.css',
+				'sidebar/sidebar_ocean.css',
+				'topbar/topbar_ocean.css',
+				'theme_ctrlr/ts_green.css',
+				]},
+		],
+	})
+	.on('theme_selection', (jqevent, name) => {
+		$('.themeselect').themeselect('select', name, {no_update:true}).themeselect('redraw');
+	})
+	.first().themeselect('select', 'light');
+
+</script>
+
+
+</html>
