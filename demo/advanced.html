@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>jQuery.ThemeMatch</title>
+
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="node_modules/themematch/node_modules/csscolorparser/csscolorparser.js"></script>
+	<script src="node_modules/themematch/dist/themematch.js"></script>
+
+	<link href="demo.css" rel="stylesheet">
+
+	<script src="jquery.themeselect/dist/jquery.themeselect.js"></script>
+	<link href="jquery.themeselect/dist/jquery.themeselect.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+	<div class="sidebar">
+		SIDE<br/>
+	</div>
+
+	<div class="topbar">
+		TOP
+	</div>
+
+	<div class="content">
+		CONTENT
+		<div class="theme_ctrlr">
+			Theme: <select class="themeselect"></select>
+		</div>
+		<div class="theme_ctrlr">
+			Theme: <select class="themeselect"></select>
+		</div>
+	</div>
+
+</body>
+
+
+<script>
+
+	$('.themeselect').themeselect({
+		themes: [
+			{ name: 'dark',   backgrounds: [ '#000000' ], foregrounds: [ '#ffffff' ] },
+			{ name: 'light',  backgrounds: [ '#ffffff' ], foregrounds: [ '#000000' ] },
+			{ name: 'sunset', backgrounds: [ '#bbbb77' ], foregrounds: [ '#990000' ] },
+			{ name: 'ocean',  backgrounds: [ '#aaffdd' ], foregrounds: [ '#006600' ] },
+		],
+		subs: [
+			{ name: 'sidebar',
+				themes: [
+					{ name: 'sidebar_normal',  css: 'sidebar/sidebar_normal.css',
+							backgrounds: [ '#dddddd' ], foregrounds: [ '#111111' ] },
+					{ name: 'sidebar_inverse', css: 'sidebar/sidebar_inverse.css',
+							backgrounds: [ '#222222' ], foregrounds: [ '#dddddd' ] },
+					{ name: 'sidebar_sunset',  css: 'sidebar/sidebar_sunset.css',
+							backgrounds: [ '#eedd88' ], foregrounds: [ '#cc0000' ] },
+					{ name: 'sidebar_ocean',   css: 'sidebar/sidebar_ocean.css',
+							backgrounds: [ '#aaffdd' ], foregrounds: [ '#006600' ] },
+				] },
+			{ name: 'topbar',
+				themes: [
+					{ name: 'topbar_normal',  css: 'topbar/topbar_normal.css',
+							backgrounds: [ '#eeeeee' ], foregrounds: [ '#222222' ] },
+					{ name: 'topbar_inverse', css: 'topbar/topbar_inverse.css',
+							backgrounds: [ '#333333' ], foregrounds: [ '#eeeeee' ] },
+					{ name: 'topbar_sunset',  css: 'topbar/topbar_sunset.css',
+							backgrounds: [ '#bb8844' ], foregrounds: [ '#990000' ] },
+					{ name: 'topbar_ocean',   css: 'topbar/topbar_ocean.css',
+							backgrounds: [ '#99ddbb' ], foregrounds: [ '#227722' ] },
+				] },
+			{ name: 'content',
+				themes: [
+					{ name: 'content_light',  css: 'content/content_light.css',
+							backgrounds: [ '#ffffff' ], foregrounds: [ '#000000' ] },
+					{ name: 'content_dark',   css: 'content/content_dark.css',
+							backgrounds: [ '#000000' ], foregrounds: [ '#ffffff' ] },
+					{ name: 'content_muddy',  css: 'content/content_muddy.css',
+							backgrounds: [ '#aa8833' ], foregrounds: [ '#662222' ] },
+					{ name: 'content_watery', css: 'content/content_watery.css',
+							backgrounds: [ '#aaccdd' ], foregrounds: [ '#005544' ] },
+				],
+				subs: [
+					{ name: 'themeselect',
+						themes: [
+							{ name: 'themeselect_red',   css: 'theme_ctrlr/ts_red.css',
+									backgrounds: [ '#807060' ], foregrounds: [ '#ff4444' ] },
+							{ name: 'themeselect_green', css: 'theme_ctrlr/ts_green.css',
+									backgrounds: [ '#a0a0c0' ], foregrounds: [ '#117722' ] },
+						] },
+				] },
+		],
+	})
+	.on('theme_selection', (jqevent, name) => {
+		$('select.themeselect')
+			.themeselect('select', name, {no_update:true})
+			.themeselect('redraw');
+	})
+	.first().themeselect('select', 'light');
+
+</script>
+
+
+</html>

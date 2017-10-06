@@ -1,0 +1,28 @@
+.topbar {
+	position:   absolute;
+	top:        0;
+	left:       0;
+	right:      0;
+	height:     100px;
+}
+
+.sidebar {
+	position:   absolute;
+	top:        100px;
+	left:       0;
+	bottom:     0;
+	width:      200px;
+}
+
+.content {
+	position:   absolute;
+	top:        100px;
+	left:       200px;
+	bottom:     0;
+	right:      0;
+}
+
+.theme_ctrlr {
+	margin:  2em;
+	padding: 1em;
+}
