@@ -1,4 +1,4 @@
-// Package: jquery.themeselect v1.0.1 (built 2017-10-06 16:46:20)
+// Package: jquery.themeselect v1.0.2 (built 2017-10-07 17:20:48)
 // Copyright: (C) 2017 Michael Wright <mjw@methodanalysis.com>
 // License: MIT
 
